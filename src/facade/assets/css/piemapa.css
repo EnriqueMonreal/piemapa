@@ -1,0 +1,96 @@
+/** Estilos sobreescritos */
+.g-cartografia-flecha-abajo {
+  color: #00796B !important;
+}
+.g-cartografia-flecha-derecha {
+  color: #536DFE !important;
+}
+.m-control.activated>button {
+  color: rgb(255, 0, 0) !important;
+}
+
+/** Estilos propios*/
+.info{
+  position : absolute;
+  width : 60%;
+  padding : 5px;
+  top : 10px;
+  left : 20%;
+  background : rgba(245, 245, 245, 0.8);
+  font-size : large;
+  border-radius : 5px;
+  border-style: dashed;
+  border-width: 2px;
+  text-align: center;
+}
+
+/* Estilos pie */
+@import 'http://www.juntadeandalucia.es/institutodeestadisticaycartografia/portal/css/estiloCabecera2015.css';
+@import 'http://www.juntadeandalucia.es/institutodeestadisticaycartografia/portal/css/estiloGenerico.css';
+@import 'http://www.juntadeandalucia.es/institutodeestadisticaycartografia/portal/css/estiloVisor.css';
+@import 'http://www.juntadeandalucia.es/institutodeestadisticaycartografia/portal/css/recursos/imprimir.css' print;
+
+/* .m-areas > div.m-area.m-bottom > div.m-panel > div.m-panel-controls > div.m-control.m-container.m-piemapa{
+  width: 100% !important;
+  height: 150px;
+  background-color: aqua !important;
+} */
+/* .m-areas > div.m-area.m-bottom > div.m-panel > div.m-panel-controls {
+  position: absolute !important;
+  bottom: 10px !important;
+  right: 0px !important;
+  width: 100% !important;
+  height: 150px !important;
+  background-color: aqua !important;
+} */
+/* .m-areas > div.m-area.m-bottom.m-left > div.m-panel{
+  position: absolute !important;  
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  margin-bottom: 0px !important;
+  bottom: 0px !important;  
+  height: fit-content !important;
+  background-color: aqua !important;
+  border-radius: 0px !important;
+  overflow: hidden;
+  
+} */
+/* div.m-panel-controls >div#div-contenedor-piemapa{
+  position: absolute !important;
+  bottom: 0px !important;
+  left: 0px !important;
+  margin-bottom: 0px !important;
+  margin-left: 0px !important;
+  width: 100% !important;
+  background-color: aqua !important;
+  border-radius: 0px !important; 
+}
+*/
+
+.m-areas>div.m-area.m-left>div.m-panel.m-piemapa{
+  margin-left: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+.m-areas>div.m-area>div.m-panel.m-piemapa {
+  border-radius: 0px !important;
+}
+
+.m-areas>div.m-area.m-left.m-bottom>div.m-panel.m-piemapa.opened>div.m-panel-controls{
+  width: 100vw !important;
+}
+
+
+/* #div-contenedor-piemapa{
+  width:100vw !important; 
+  
+} */
+
+/* #piemapa{
+  width: 100% !important;
+  
+} */
+#div-contenedor-piemapa{
+  width: 100% !important;
+
+}

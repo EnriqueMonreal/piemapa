@@ -28,7 +28,6 @@ export default class PiemapaControl extends M.Control {
     this.config = config;
     this.htmlCode = this.config.htmlCode
     this.cssList = this.config.cssList
-    //this.templateVars = { vars: { htmlCode: this.htmlCode , cssList : this.cssList} };
     this.injectCSS(this.cssList)
     this.templateVars = { vars: { htmlCode: this.htmlCode} };
     

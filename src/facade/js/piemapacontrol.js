@@ -28,7 +28,9 @@ export default class PiemapaControl extends M.Control {
     this.config = config;
     this.htmlCode = this.config.htmlCode
     this.cssList = this.config.cssList
-    this.templateVars = { vars: { htmlCode: this.htmlCode , cssList : this.cssList} };
+    this.injectCSS(this.cssList)
+    this.templateVars = { vars: { htmlCode: this.htmlCode} };
+    
 
     
   }
@@ -42,9 +44,6 @@ export default class PiemapaControl extends M.Control {
    * @api stable
    */
   createView(map) {
-    console.log(this.htmlCode);
-    console.log(this.cssList);
-
     return new Promise((success, fail) => {
       const html = M.template.compileSync(template, this.templateVars);
       // Añadir código dependiente del DOM
@@ -62,13 +61,6 @@ export default class PiemapaControl extends M.Control {
   activate() {
     // calls super to manage de/activation
     super.activate();
-    const div = document.createElement('div');
-    div.id = 'msgInfo';
-    div.classList.add('info');
-    div.innerHTML = 'Haz doble click sobre el mapa';
-    this.map_.getContainer().appendChild(div);
-
-    this.getImpl().activateClick(this.map_);
   }
   /**
    * This function is called on the control deactivation
@@ -80,10 +72,6 @@ export default class PiemapaControl extends M.Control {
   deactivate() {
     // calls super to manage de/activation
     super.deactivate();
-    const div = document.getElementById('msgInfo');
-    this.map_.getContainer().removeChild(div);
-
-    this.getImpl().deactivateClick(this.map_);
   }
   /**
    * This function gets activation button
@@ -110,4 +98,15 @@ export default class PiemapaControl extends M.Control {
   }
 
   // Add your own functions
+  injectCSS(cssList){
+    for (let index = 0; index < cssList.length; index++) {
+      const cssFile = cssList[index];
+      let link = document.createElement( "link" );  
+      link.href = cssFile;
+      //link.type = "text/css";
+      link.rel = "stylesheet";
+      // link.media = "screen,print";
+      document.getElementsByTagName( "head" )[0].appendChild( link );
+    }
+  }
 }

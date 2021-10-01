@@ -16,7 +16,7 @@ export default class Piemapa extends M.Plugin {
    * @param {Object} impl implementation object
    * @api stable
    */
-  constructor() {
+  constructor(config) {
     super();
     /**
      * Facade of the map
@@ -24,7 +24,7 @@ export default class Piemapa extends M.Plugin {
      * @type {M.Map}
      */
     this.map_ = null;
-
+    this.config=config;
     /**
      * Array of controls
      * @private
@@ -49,7 +49,8 @@ export default class Piemapa extends M.Plugin {
    * @api stable
    */
   addTo(map) {
-    this.controls_.push(new PiemapaControl());
+    this.control_= new PiemapaControl(this.config)
+    this.controls_.push(this.control_);
     this.map_ = map;
     // panel para agregar control - no obligatorio
     this.panel_ = new M.ui.Panel('panelPiemapa', {

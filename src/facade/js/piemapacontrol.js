@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /**
  * @module M/control/PiemapaControl
  */
@@ -15,7 +16,7 @@ export default class PiemapaControl extends M.Control {
    * @extends {M.Control}
    * @api stable
    */
-  constructor() {
+  constructor(config) {
     // 1. checks if the implementation can create PluginControl
     if (M.utils.isUndefined(PiemapaImplControl)) {
       M.exception('La implementación usada no puede crear controles PiemapaControl');
@@ -24,10 +25,12 @@ export default class PiemapaControl extends M.Control {
     const impl = new PiemapaImplControl();
     super(impl, 'Piemapa');
 
-    // captura de customevent lanzado desde impl con coords
-    window.addEventListener('mapclicked', (e) => {
-      this.map_.addLabel('Hola Mundo!', e.detail);
-    });
+    this.config = config;
+    this.htmlCode = this.config.htmlCode
+    this.cssList = this.config.cssList
+    this.templateVars = { vars: { htmlCode: this.htmlCode , cssList : this.cssList} };
+
+    
   }
 
   /**
@@ -39,28 +42,11 @@ export default class PiemapaControl extends M.Control {
    * @api stable
    */
   createView(map) {
-    if (!M.template.compileSync) { // JGL: retrocompatibilidad Mapea4
-      M.template.compileSync = (string, options) => {
-        let templateCompiled;
-        let templateVars = {};
-        let parseToHtml;
-        if (!M.utils.isUndefined(options)) {
-          templateVars = M.utils.extends(templateVars, options.vars);
-          parseToHtml = options.parseToHtml;
-        }
-        const templateFn = Handlebars.compile(string);
-        const htmlText = templateFn(templateVars);
-        if (parseToHtml !== false) {
-          templateCompiled = M.utils.stringToHtml(htmlText);
-        } else {
-          templateCompiled = htmlText;
-        }
-        return templateCompiled;
-      };
-    }
-    
+    console.log(this.htmlCode);
+    console.log(this.cssList);
+
     return new Promise((success, fail) => {
-      const html = M.template.compileSync(template);
+      const html = M.template.compileSync(template, this.templateVars);
       // Añadir código dependiente del DOM
       success(html);
     });

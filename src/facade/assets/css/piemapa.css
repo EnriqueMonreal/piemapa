@@ -2,7 +2,11 @@
 .g-cartografia-flecha-abajo {
   color: #00796B !important;
 }
-.g-cartografia-flecha-derecha {
+.g-cartografia-flecha-arriba {
+  color: #536DFE !important;
+}
+
+.g-cartografia-flecha-izquierda {
   color: #536DFE !important;
 }
 .m-control.activated>button {
@@ -81,16 +85,43 @@
 }
 
 
-/* #div-contenedor-piemapa{
-  width:100vw !important; 
-  
-} */
+.m-areas>div.m-area.m-left.m-bottom>div.m-panel.m-piemapa{
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
 
-/* #piemapa{
-  width: 100% !important;
+.m-areas>div.m-area.m-left.m-bottom>div.m-panel.m-piemapa.opened>button{
+  background-color: #ffffff !important;
+  /* border-radius: 0px !important; */
+  border-top-left-radius: 50% !important;
+  border-top-right-radius: 50% !important;
+  border-bottom-left-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+  height: 25px !important;
+  float:left !important;
+}
+.m-areas>div.m-area.m-left.m-bottom>div.m-panel.m-piemapa.opened>button.m-panel-btn.g-cartografia-flecha-izquierda::before{
+  /* content: "\e915"; */
+  content: "«";
+  font-size: 13px !important;
+  transform :rotate(90deg) !important;
   
-} */
+}
+
 #div-contenedor-piemapa{
   width: 100% !important;
+  background-color: #FFFFFF !important;
+}
 
+
+.m-areas>div.m-area.m-left.m-bottom>div.m-panel.m-piemapa.collapsed>button.m-panel-btn {
+    position: absolute !important;
+    left: 0px !important;
+    bottom: 0px !important;
+    box-shadow: none;
+    margin-bottom: 0px !important;
+    border-radius: 0px !important;
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+    /* width: 100px !important; */
 }

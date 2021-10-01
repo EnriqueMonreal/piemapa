@@ -57,6 +57,7 @@ export default class Piemapa extends M.Plugin {
       className: 'm-piemapa',
       position: M.ui.position.BL,
       collapsedButtonClass: 'g-cartografia-flecha-arriba',
+      tooltip: 'Ver pie de página'
       
     });
     this.panel_.addControls(this.controls_);

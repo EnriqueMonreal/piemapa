@@ -63,6 +63,7 @@ export default class Piemapa extends M.Plugin {
     });
     this.panel_.addControls(this.controls_);
     map.addPanels(this.panel_);
+    this.panel_.open();
   }
 
   /**

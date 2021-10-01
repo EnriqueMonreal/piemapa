@@ -5,7 +5,9 @@
 .g-cartografia-flecha-arriba {
   color: #536DFE !important;
 }
-
+.g-cartografia-flecha-izquierda {
+  color: #536DFE !important;
+}
 .m-areas>div.m-area.m-left>div.m-panel.m-piemapa{
   margin-left: 0px !important;
   margin-bottom: 0px !important;
@@ -36,16 +38,14 @@
   float:left !important;
 }
 .m-areas>div.m-area.m-left.m-bottom>div.m-panel.m-piemapa.opened>button.m-panel-btn.g-cartografia-flecha-izquierda::before{
-  /* content: "\e915"; */
-  content: "<>";
+  content: "\e915";
+  /* content: "<>"; */
   font-size: 20px !important;
-  transform:rotate(-90deg);
-  
-  
 }
 
 #div-contenedor-piemapa{
   width: 100% !important;
+  padding-top: 10px!important;
   background-color: #FFFFFF !important;
 }
 
